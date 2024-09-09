@@ -1,0 +1,13 @@
+server.port:
+  3500
+#      ！！！！！     http://localhost:3500/user是访问路径     ！！！！
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/music_platform_db?characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: yh697979
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml # mapper映射文件路径
+  type-aliases-package: com.guoqiang.entity   # 配置哪个包下的类有默认的别名

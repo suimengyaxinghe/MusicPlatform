@@ -65,7 +65,4 @@ public class UserController {
     }
 
     //主界面
-    public String logged(, Model model){
-
-    }
 }

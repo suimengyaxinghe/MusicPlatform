@@ -8,6 +8,10 @@ spring:
     username: root
     password: yh697979
     driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 2MB
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml # mapper映射文件路径
   type-aliases-package: com.guoqiang.entity   # 配置哪个包下的类有默认的别名

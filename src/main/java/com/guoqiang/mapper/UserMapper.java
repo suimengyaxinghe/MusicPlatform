@@ -14,4 +14,8 @@ public interface UserMapper {
     void register(User user);
     //注册用户前的检验
     User checkBeforeRegister(User user);
+    //修改用户信息
+    void changeUserInfo(User user);
+
+    int findByUsername(String username);
 }

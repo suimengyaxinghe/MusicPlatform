@@ -8,4 +8,8 @@ public interface UserService {
     public void register(User user);
 
     User checkBeforeRegister(User user);
+
+    void changeUserInfo(User user);
+
+    int findByUsername(String username);
 }

@@ -24,4 +24,14 @@ public class UserServiceImpl implements UserService {
         User checkBeforeRegister = userMapper.checkBeforeRegister(user);
         return checkBeforeRegister;
     }
+
+    @Override
+    public void changeUserInfo(User user) {
+        userMapper.changeUserInfo(user);
+    }
+
+    @Override
+    public int findByUsername(String username) {
+        return userMapper.findByUsername(username);
+    }
 }

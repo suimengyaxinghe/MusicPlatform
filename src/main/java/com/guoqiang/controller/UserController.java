@@ -7,12 +7,12 @@ import com.guoqiang.utils.JwtUtil;
 import io.jsonwebtoken.Jwt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -64,5 +64,20 @@ public class UserController {
         }
     }
 
-    //主界面
+    //修改用户信息
+//    @PostMapping("/change")
+//    public ResponseResult changeUserInfo(@RequestBody User user) {
+//        userService.changeUserInfo(user);
+//        return new ResponseResult(200, "信息更新成功", null);
+//    }
+//    @PostMapping("/change")
+//    public ResponseResult register(User user, HttpSession session, MultipartFile profileImg) throws IOException {
+//        int count = userService.findByUsername(user.getUsername());
+//        User loginUser = (User) session.getAttribute("user");
+//        if (count == 0 || loginUser.getUsername().equals(user.getUsername())) {
+//            userService.changeUserInfo(user);
+//            session.removeAttribute("user");
+//}
+//    return new ResponseResult(200, "信息更新成功", null);
+//    }
 }

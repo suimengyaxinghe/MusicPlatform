@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guoqiang.mapper.MusicListMapper">
+
+    <insert id="addMusicList">
+        insert into musiclist (`list_id`,`list_name`,`is_deleted`) values (#{list_id},#{list_name},0)
+    </insert>
+    <update id="restore">
+        update musiclist set is_deleted = 0 where list_name = #{list_name}
+
+    </update>
+    <delete id="delete">
+        update musiclist set is_deleted = 1 where list_name = #{list_name}
+    </delete>
+    <select id="findAll" resultType="com.guoqiang.entity.MusicList">
+        select * from musiclist where is_deleted = 0
+    </select>
+    <select id="findByListname" resultType="com.guoqiang.entity.MusicList">
+        select * from musiclist where list_name = #{list_name} and is_deleted = 0
+    </select>
+</mapper>

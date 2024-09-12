@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guoqiang.mapper.MusicVideoMapper">
+
+    <insert id="addMusicVideo">
+        insert into
+    </insert>
+    <delete id="deleteMusicVideo">
+        update musicvideo set is_deleted = 1 where video_name = #{video_name}
+    </delete>
+    <select id="findAll" resultType="com.guoqiang.entity.MusicVideo">
+        select * from musicvideo where is_deleted = 0
+    </select>
+    <select id="findByMVName" resultType="com.guoqiang.entity.MusicVideo">
+        select * from musicvideo where is_deleted = 0 and video_name = #{video_name}
+    </select>
+</mapper>

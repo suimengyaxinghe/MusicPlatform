@@ -31,4 +31,9 @@ public class MusicServiceImpl implements MusicService {
     public List<Music> findByTongue(Music music) {
         return musicMapper.findByTongue(music);
     }
+
+    @Override
+    public void deleteMusic(Music music) {
+        musicMapper.deleteMusic(music);
+    }
 }

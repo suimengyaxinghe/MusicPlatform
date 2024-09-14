@@ -3,16 +3,19 @@
 <mapper namespace="com.guoqiang.mapper.MusicMapper">
 
     <insert id="addMusic">
-        insert into music (`musicname`,`singername`,`lyricist`,`composer`,`publishtime`,`tongue`,`musictime`) values (#{musicname},#{singername},#{lyricist},#{composer},#{publishtime},#{tongue},#{musictime})
+        insert into music (`musicname`,`singername`,`lyricist`,`composer`,`publishtime`,`type`,`musictime`) values (#{musicname},#{singername},#{lyricist},#{composer},#{publishtime},#{type},#{musictime})
     </insert>
+    <delete id="deleteMusic">
+        update music set is_deleted = 1 where musicname = #{musicname}
+    </delete>
 
     <select id="findALL" resultType="com.guoqiang.entity.Music">
-        select musicname,singername,lyricist,composer,tongue,publishtime,musictime from music
+        select * from music
     </select>
     <select id="findByMusicname" resultType="com.guoqiang.entity.Music">
         select * from music where musicname = #{musicname}
     </select>
     <select id="findByTongue" resultType="com.guoqiang.entity.Music">
-        select * from music where tongue = #{tongue}
+        select * from music where type = #{type}
     </select>
 </mapper>

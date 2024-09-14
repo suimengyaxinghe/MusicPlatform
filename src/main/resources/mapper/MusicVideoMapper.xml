@@ -3,15 +3,15 @@
 <mapper namespace="com.guoqiang.mapper.MusicVideoMapper">
 
     <insert id="addMusicVideo">
-        insert into
+        insert into video (`video_name`) values (#{video_name})
     </insert>
     <delete id="deleteMusicVideo">
-        update musicvideo set is_deleted = 1 where video_name = #{video_name}
+        update video set is_deleted = 1 where video_name = #{video_name}
     </delete>
     <select id="findAll" resultType="com.guoqiang.entity.MusicVideo">
-        select * from musicvideo where is_deleted = 0
+        select * from video where is_deleted = 0
     </select>
     <select id="findByMVName" resultType="com.guoqiang.entity.MusicVideo">
-        select * from musicvideo where is_deleted = 0 and video_name = #{video_name}
+        select * from video where is_deleted = 0 and video_name = #{video_name}
     </select>
 </mapper>

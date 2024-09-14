@@ -5,7 +5,10 @@
     <insert id="register">
         insert into users(`username`,`password`,`is_deleted`) values (#{username},#{password},0)
     </insert>
-    <update id="changeUserInfo">
+    <insert id="addMusicListToUser">
+        INSERT INTO user_musiclist (user_id, musiclist_id) VALUES (#{user_id}, #{musiclist_id});
+    </insert>
+        <update id="changeUserInfo">
         update users set nickname = #{nickname},password = #{password},gender = #{gender},hobby = #{hobby} where id = #{id}
     </update>
 
@@ -16,7 +19,7 @@
     <select id="checkBeforeRegister" resultType="com.guoqiang.entity.User">
         select * from users where username = #{username} and password = #{password} and is_deleted = 0
     </select>
-    <select id="findByUsername" resultType="java.lang.Integer">
-        SELECT COUNT(*) FROM users where username = #{username}
+    <select id="findByUsername" resultType="com.guoqiang.entity.User">
+        SELECT * from users where username = #{username}
     </select>
 </mapper>

@@ -8,13 +8,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Music {
-    private Integer id;
+    private Integer music_id;
     private String musicname;
     private String singername;
     private String lyricist;
     private String composer;
 
     private String publishtime;
-    private String tongue;
+    private String type;
     private String musictime;
 }

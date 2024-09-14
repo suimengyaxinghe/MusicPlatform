@@ -10,4 +10,6 @@ public interface MusicService {
      void addMusic(Music music);
 
      List<Music> findByTongue(Music music);
+
+    void deleteMusic(Music music);
 }

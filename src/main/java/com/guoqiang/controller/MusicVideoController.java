@@ -10,25 +10,22 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/musicvideo")
-
-
-/////这类都没有经过检验
 public class MusicVideoController {
-    @Autowired(required = false)
+    @Autowired
     private MusicVideoService musicVideoService;
 
-    //添加mv
+    //添加mv-----管理员
     @PostMapping("/addmusicvideo")
     public ResponseResult addMusicVideo(@RequestBody MusicVideo musicVideo){
         musicVideoService.addMusicVideo(musicVideo);
-        return new ResponseResult<>(200,"添加mv成功",musicVideo);
+        return new ResponseResult<>(200,"添加mv成功",null);
     }
 
-    //删除mv
+    //删除mv-----管理员
     @PostMapping("/deletemusicvideo")
     public ResponseResult deleteMusicVideo(@RequestBody MusicVideo musicVideo){
         musicVideoService.deleteMusicVideo(musicVideo);
-        return new ResponseResult<>(200,"删除mv成功",musicVideo);
+        return new ResponseResult<>(200,"删除mv成功",null);
     }
 
     //查询所有mv
@@ -42,6 +39,9 @@ public class MusicVideoController {
     @GetMapping("/findbymvname")
     public ResponseResult findByMVName(@RequestBody MusicVideo musicVideo){
         MusicVideo Video = musicVideoService.findByMVName(musicVideo);
+        if (Video == null){
+            return new ResponseResult(300,"查询失败，该mv不存在",null);
+        }
         return new ResponseResult<>(200,"查询成功",Video);
     }
 }

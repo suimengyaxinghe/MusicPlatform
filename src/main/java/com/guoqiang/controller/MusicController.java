@@ -26,7 +26,7 @@ public class MusicController {
     @GetMapping("/findbymusicname")
     public ResponseResult  findByMusicname(@RequestBody Music music){
         Music findmusic = musicService.findByMusicname(music);
-        if(findmusic.getId() ==null){
+        if(findmusic.getMusicname() ==null){
             return new ResponseResult<>(300,"查询失败",null);
         }
         return new ResponseResult(200,"查询歌曲成功",findmusic);
@@ -42,11 +42,16 @@ public class MusicController {
     }
 
 
-    //增加歌曲
+    //增加歌曲--------管理员
     @PostMapping("/addmusic")
     public ResponseResult addMusic(@RequestBody Music music){
         musicService.addMusic(music);
         return new ResponseResult(200,"增加歌曲成功",music);
     }
 
+    @PostMapping("/deletemusic")
+    public ResponseResult deleteMusic(@RequestBody Music music){
+        musicService.deleteMusic(music);
+        return new ResponseResult(200,"删除歌曲成功","is_deleted = 1");
+    }
 }

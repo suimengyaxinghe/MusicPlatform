@@ -46,13 +46,16 @@ public class MusicListController {
     @PostMapping("/delete")
     public ResponseResult delete(@RequestBody MusicList musicList){
         musicListService.delete(musicList);
-        return new ResponseResult(200,"删除歌单成功",null);
+        return new ResponseResult(200,"删除歌单成功","is_deleted = 1");
     }
 
     //恢复歌单
     @PostMapping("/restore")
     public ResponseResult restore(@RequestBody MusicList musicList){
         musicListService.restore(musicList);
-        return new ResponseResult(200,"恢复歌单成功",null);
+        return new ResponseResult(200,"恢复歌单成功","is_deleted = 0");
     }
+
+    //查询歌单里面的歌
+
 }

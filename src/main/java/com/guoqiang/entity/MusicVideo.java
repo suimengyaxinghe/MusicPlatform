@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MusicVideo {
-    private Integer mv_id;
-    private String mv_name;
+    private Integer video_id;
+    private String video_name;
 }

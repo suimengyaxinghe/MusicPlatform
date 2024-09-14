@@ -16,4 +16,15 @@ public class ResponseResult<T> {
     private String msg;
     //查询到的结果数据
     private T data;
+
+//    public ResponseResult ok(Integer code, String msg ,T data){
+//        this.code = code;
+//        this.msg = msg;
+//        this.data = data;
+//        return this;
+//    }
+//
+//    public static ResponseResult success(){
+//        return new
+//    }
 }

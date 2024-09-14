@@ -11,11 +11,11 @@ import java.util.List;
 public interface MusicListMapper {
     void addMusicList(MusicList musicList);
 
-    List<MusicList> findAll();
-
     MusicList findByListname(MusicList musicList);
 
     void delete(MusicList musicList);
 
     void restore(MusicList musicList);
+
+    List<MusicList> findAll();
 }

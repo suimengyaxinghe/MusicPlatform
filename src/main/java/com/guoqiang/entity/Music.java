@@ -17,4 +17,5 @@ public class Music {
     private String publishtime;
     private String type;
     private String musictime;
+    private String url;
 }

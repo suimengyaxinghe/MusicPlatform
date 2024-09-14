@@ -12,10 +12,10 @@
     <delete id="delete">
         update musiclist set is_deleted = 1 where list_name = #{list_name}
     </delete>
-    <select id="findAll" resultType="com.guoqiang.entity.MusicList">
-        select * from musiclist where is_deleted = 0
-    </select>
     <select id="findByListname" resultType="com.guoqiang.entity.MusicList">
         select * from musiclist where list_name = #{list_name} and is_deleted = 0
+    </select>
+    <select id="findAll" resultType="com.guoqiang.entity.MusicList">
+        select * from musiclist where is_deleted = 0
     </select>
 </mapper>

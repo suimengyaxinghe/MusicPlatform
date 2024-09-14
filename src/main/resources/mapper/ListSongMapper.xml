@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.guoqiang.mapper.ListSongMapper">
+    <insert id="addSong">
+        insert into music_list_relation (`music_id`,`list_id`) values (#{music_id},#{list_id})
+    </insert>
+    <delete id="remove">
+        delete from music_list_relation where music_id = #{music_id} and list_id = #{list_id}
+    </delete>
+
+    <select id="getAllSongs" resultType="com.guoqiang.entity.ListSong">
+        SELECT music_id from music_list_relation where list_id = #{list_id};
+    </select>
+</mapper>

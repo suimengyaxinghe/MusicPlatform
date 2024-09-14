@@ -3,7 +3,7 @@
 <mapper namespace="com.guoqiang.mapper.MusicMapper">
 
     <insert id="addMusic">
-        insert into music (`musicname`,`singername`,`lyricist`,`composer`,`publishtime`,`type`,`musictime`) values (#{musicname},#{singername},#{lyricist},#{composer},#{publishtime},#{type},#{musictime})
+        insert into music (`musicname`,`singername`,`lyricist`,`composer`,`publishtime`,`type`,`musictime`,`url`) values (#{musicname},#{singername},#{lyricist},#{composer},#{publishtime},#{type},#{musictime},#{url})
     </insert>
     <delete id="deleteMusic">
         update music set is_deleted = 1 where musicname = #{musicname}

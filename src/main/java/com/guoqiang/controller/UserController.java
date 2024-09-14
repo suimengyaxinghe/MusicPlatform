@@ -1,10 +1,8 @@
 package com.guoqiang.controller;
 
-import com.guoqiang.entity.LoginUser;
-import com.guoqiang.entity.MusicList;
-import com.guoqiang.entity.ResponseResult;
-import com.guoqiang.entity.User;
+import com.guoqiang.entity.*;
 import com.guoqiang.entity.dto.UpdateUserInfoDTO;
+import com.guoqiang.service.ListUserService;
 import com.guoqiang.service.MusicListService;
 import com.guoqiang.service.UserService;
 import com.guoqiang.utils.JwtUtil;
@@ -28,8 +26,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-    @Autowired(required = false)
-    private MusicListService musicListService;
+    @Autowired
+    private ListUserService listUserService;
 
     private List<LoginUser> loginUserList = new ArrayList<>();
 
@@ -88,12 +86,23 @@ public class UserController {
         return new ResponseResult(200, "信息更新成功", null);
     }
 
-    //实现用户收藏某个歌单
-    @PostMapping("/gainlist")
-    public ResponseResult addMusicListToUser(@RequestBody MusicList musicList, @RequestBody User user) {
-        userService.addMusicListToUser(user,musicList);
-        return new ResponseResult(200,"收藏歌单成功",null);
+    //用户收藏歌单
+    @PostMapping("/addList")
+    public ResponseResult addList(@RequestBody ListUser listUser){
+        listUserService.addList(listUser);
+        return new ResponseResult<>(200,"您收藏歌单成功",null);
     }
 
-    //查找根据用户名查找歌单
+    //用户取消收藏歌单
+    @PostMapping("/remove")
+    public ResponseResult remove(@RequestBody ListUser listUser){
+        listUserService.remove(listUser);
+        return new ResponseResult<>(200, "将歌曲移除歌单成功", null);
+    }
+    //查询用户拥有的歌单
+    @GetMapping("/select")
+    public ResponseResult select(@RequestBody ListUser listUser){
+        List<ListUser> allLists = listUserService.getAllLists(listUser);
+        return new ResponseResult(200,"查询成功","list_id = 1");
+    }
 }

@@ -69,7 +69,7 @@ public class MusicListController {
 
     //将一首歌添加到歌单里
     @PostMapping("/addSong")
-    public ResponseResult addSong(@RequestBody ListSong listSong) {
+    public ResponseResult addSong(@RequestBody ListSong listSong){
         listSongService.addSong(listSong);
 
         return new ResponseResult<>(200, "将歌曲添加到歌单成功", null);
